@@ -1,6 +1,15 @@
 import querys from './querys.js'
 
 export default function makeSecurityData({ makeDbConnection }) {
+    async function validateExistUser(params) {
+        try {
+            const db = await makeDbConnection(querys.validateExistUser, params || [])
+            return db
+        } catch (e) {
+            throw { status: 500, message: 'Error al validar la existencia del usuario' }
+        }
+    }
+
     async function postLogin(params) {
         try {
             const db = await makeDbConnection(querys.postTryLogin, params || '')
@@ -81,5 +90,5 @@ export default function makeSecurityData({ makeDbConnection }) {
     //     }
     // }
 
-    return Object.freeze({ postLogin, validateUserCredentials })
+    return Object.freeze({ validateExistUser })
 }

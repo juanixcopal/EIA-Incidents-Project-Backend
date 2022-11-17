@@ -1,22 +1,30 @@
-export default ({ securityData }) => {
-    return async ({ request }) => {
+export default ({ securityData, env }) => {
+    return async ({ request, helpersObject }) => {
         try {
+            const { generateTokenHelper, validatePasswordHelper } = helpersObject
             const { username, password } = request.body
-            console.log('TRY LOGIN', request.body)
-            const params = [username, password]
+            const { REDIRECT_PATH_AFTER_LOGIN } = env
 
-            const userValidate = await securityData.validateUserCredentials(params)
+            const userData = await securityData.validateExistUser([username])
 
-            if (userValidate) {
-                return 'CREDENCIALES CORRECTAS'
-            } else {
-                return 'Credenciales malas'
+            if (userData.length <= 0) {
+                return { status: 401, message: 'Usuario no registrado', result: false }
             }
-            // const params = [username, password]
-            // const { affectedRows } = await securityData.postLogin(params)
-            // console.log();
 
-            // return affectedRows > 0 ? { result: true, message: 'Aula creada' } : { result: false, message: 'No se ha podido crear el aula' }
+            const { id_user, password: hash } = userData[0]
+            const payload = { id_user, username }
+
+            console.log(payload)
+
+            const validatePassword = await validatePasswordHelper(password, hash)
+
+            if (!validatePassword) {
+                return { status: 401, message: 'Usuario o contraseña incorrecto!', result: false }
+            }
+
+            const token = await generateTokenHelper(payload)
+
+            return { ...payload, redirect: REDIRECT_PATH_AFTER_LOGIN, result: true, token }
         } catch (e) {
             console.log(e)
             return null

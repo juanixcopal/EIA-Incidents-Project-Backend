@@ -1,3 +1,3 @@
-import { incidencesData, classroomsData, securityData } from './mysql/index.js'
+import { incidencesData, classroomsData, securityData, usersData } from './mysql/index.js'
 
-export { incidencesData, classroomsData, securityData }
+export { incidencesData, classroomsData, securityData, usersData }

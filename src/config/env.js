@@ -13,7 +13,11 @@ const env = {
     MYSQL_USER: process.env.MYSQL_USER || 'root',
     MYSQL_PASS: process.env.MYSQL_PASS || '',
     MYSQL_DATABASE: process.env.MYSQL_DATABASE || '',
-    MYSQL_DEBUG: process.env.MYSQL_DEBUG || false
+    MYSQL_DEBUG: process.env.MYSQL_DEBUG || false,
+    JWT_SECRET: process.env.JWT_SECRET || '',
+    JWT_EXPIRESIN: process.env.JWT_EXPIRESIN || '1h',
+    BCRYPT_SALT_ROUNDS: process.env.BCRYPT_SALT_ROUNDS || 10,
+    REDIRECT_PATH_AFTER_LOGIN: process.env.REDIRECT_PATH_AFTER_LOGIN || 'http://localhost:3000/inicio'
 }
 
 export default env
