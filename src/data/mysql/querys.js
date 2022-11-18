@@ -32,6 +32,15 @@ const querys = {
     `,
     validateUserCredentials: `
         SELECT * FROM 
+    `,
+    createUser: `
+        INSERT INTO tb_user (username, password)
+        VALUES (?, ?)
+    `,
+    validateExistUser: `
+        SELECT id_user, username, password
+        FROM tb_user
+        WHERE username = ?
     `
 }
 

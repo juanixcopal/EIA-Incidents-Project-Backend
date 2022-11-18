@@ -17,7 +17,7 @@ export default async ({ request, response, moduleKey, controller }) => {
             type: 'about:blank',
             message: 'Internal Server Error',
             status: 500,
-            detail: 'An internal server error ocurred',
+            detail: 'An internal server error ocurred'
         })
     }
 }

@@ -5,13 +5,13 @@
     "main": "server.js",
     "type": "module",
     "scripts": {
-        "start": "nodemon server.js",
         "dev": "npx nodemon ./src/server/index.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^5.1.0",
         "compression": "^1.7.4",
         "connect-timeout": "^1.9.0",
         "cookie-parser": "^1.4.6",

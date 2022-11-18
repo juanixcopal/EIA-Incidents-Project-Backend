@@ -3,12 +3,14 @@ import routeCallback from './router-callback.js'
 
 import { ValidationMiddleware, ServiceSelectMiddleware } from '../middlewares/index.js'
 
+import { loginValidate } from './validations/security/index.js'
+
 import { securityController } from '../controllers/index.js'
 
 const router = Router()
 
 export default () => {
-    router.post('/login', [ValidationMiddleware], (request, response) => {
+    router.post('/login', [loginValidate, ValidationMiddleware], (request, response) => {
         const moduleKey = `login`
         routeCallback({ request, response, moduleKey, controller: securityController })
     })
