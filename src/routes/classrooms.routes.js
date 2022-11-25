@@ -13,15 +13,5 @@ export default () => {
         routeCallback({ request, response, moduleKey, controller: classroomsController })
     })
 
-    // router.put('/manager', [ValidationMiddleware], (request, response) => {
-    //     const moduleKey = `update-ticket`
-    //     routeCallback({ request, response, moduleKey, controller: ticketController })
-    // })
-
-    // router.delete('/manager', [ValidationMiddleware], (request, response) => {
-    //     const moduleKey = `delete-ticket`
-    //     routeCallback({ request, response, moduleKey, controller: ticketController })
-    // })
-
     return router
 }

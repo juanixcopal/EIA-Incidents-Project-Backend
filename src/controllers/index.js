@@ -4,15 +4,18 @@ import incidencesServices from '../services/incidences/index.js'
 import classroomsServices from '../services/classrooms/index.js'
 import securityServices from '../services/security/index.js'
 import usersServices from '../services/users/index.js'
+import typeClassroomsServices from '../services/typeClassrooms/index.js'
 
 import makeIncidencesController from './incidences.controller.js'
 import makeClassroomsController from './classrooms.controller.js'
 import makeSecurityController from './security.controller.js'
 import makeUsersController from './users.controller.js'
+import makeTypeClassroomsController from './typeClassrooms.controller.js'
 
 const incidencesController = makeIncidencesController({ incidencesServices })
 const classroomsController = makeClassroomsController({ classroomsServices })
 const securityController = makeSecurityController({ securityServices, helpersObject })
 const usersController = makeUsersController({ usersServices, helpersObject })
+const typeClassroomsController = makeTypeClassroomsController({ typeClassroomsServices })
 
-export { incidencesController, classroomsController, securityController, usersController }
+export { incidencesController, classroomsController, securityController, usersController, typeClassroomsController }

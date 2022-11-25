@@ -41,6 +41,9 @@ const querys = {
         SELECT id_user, username, password
         FROM tb_user
         WHERE username = ?
+    `,
+    getTypeClassrooms: `
+        SELECT * FROM tb_tipo_aula
     `
 }
 
