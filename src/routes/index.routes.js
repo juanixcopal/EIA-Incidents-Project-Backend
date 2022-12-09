@@ -10,7 +10,7 @@ import compression from 'compression'
 import timeout from 'connect-timeout'
 
 import { NotFoundMiddleware, ErrorMiddleware } from '../middlewares/index.js'
-import { incidencesRoutes, classroomsRoutes, securityRoutes, usersRoutes } from './index.js'
+import { incidencesRoutes, classroomsRoutes, securityRoutes, usersRoutes, typeClassroomsRoutes } from './index.js'
 
 export default ({ config }) => {
     const { SERVER_TIMEOUT } = config
@@ -29,6 +29,7 @@ export default ({ config }) => {
     apiRoutes.use('/classrooms', classroomsRoutes())
     apiRoutes.use('/security', securityRoutes())
     apiRoutes.use('/users', usersRoutes())
+    apiRoutes.use('/typeClassrooms', typeClassroomsRoutes())
 
     router.use('/v1', apiRoutes)
     router.use(NotFoundMiddleware)

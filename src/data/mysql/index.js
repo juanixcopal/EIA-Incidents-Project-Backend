@@ -5,6 +5,7 @@ import makeIncidencesData from './incidences.data.js'
 import makeClassroomsData from './classrooms.data.js'
 import makeSecurityData from './security.data.js'
 import makeUsersData from './users.data.js'
+import makeTypeClassroomsData from './typeClassrooms.data.js'
 
 const { MYSQL_CONNECTION_LIMIT, MYSQL_PORT, MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DATABASE, MYSQL_DEBUG } = env
 
@@ -48,5 +49,6 @@ const incidencesData = makeIncidencesData({ makeDbConnection })
 const classroomsData = makeClassroomsData({ makeDbConnection })
 const securityData = makeSecurityData({ makeDbConnection })
 const usersData = makeUsersData({ makeDbConnection })
+const typeClassroomsData = makeTypeClassroomsData({ makeDbConnection })
 
-export { incidencesData, classroomsData, securityData, usersData }
+export { incidencesData, classroomsData, securityData, usersData, typeClassroomsData }

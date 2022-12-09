@@ -8,7 +8,7 @@ const querys = {
         ON tb_aula.id_planta = tb_planta.id_planta
     `,
     getOpenIncidences: `
-        SELECT tb_reporte.id_reporte, tb_estado_incidencia.id_estado_incidencia, tb_planta.id_planta, tb_aula.id_aula, tb_estado_incidencia.estado,  tb_aula.aula,  tb_planta.planta
+        SELECT tb_reporte.id_reporte, tb_estado_incidencia.id_estado_incidencia, tb_planta.id_planta, tb_aula.id_aula, tb_reporte.titulo, tb_reporte.descripcion, tb_estado_incidencia.estado,  tb_aula.aula,  tb_planta.planta
         FROM tb_reporte
         INNER JOIN tb_estado_incidencia
         ON tb_reporte.id_estado_incidencia = tb_estado_incidencia.id_estado_incidencia
@@ -41,6 +41,9 @@ const querys = {
         SELECT id_user, username, password
         FROM tb_user
         WHERE username = ?
+    `,
+    getTypeClassrooms: `
+        SELECT * FROM tb_tipo_aula
     `
 }
 
