@@ -1,0 +1,7 @@
+POST http://localhost:3050/v1/security/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "prueba",
+    "password": "prueba"
+}

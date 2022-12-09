@@ -14,8 +14,6 @@ export default ({ securityData, env }) => {
             const { id_user, password: hash } = userData[0]
             const payload = { id_user, username }
 
-            console.log(payload)
-
             const validatePassword = await validatePasswordHelper(password, hash)
 
             if (!validatePassword) {
