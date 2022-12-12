@@ -1,6 +1,7 @@
 import express from 'express'
 import config from '../config/env.js'
 import router from '../routes/index.routes.js'
+process.setMaxListeners(30)
 
 let _express = null
 const { SERVER_PORT, SERVER_HOST } = config
