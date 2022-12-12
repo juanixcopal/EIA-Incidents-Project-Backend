@@ -45,6 +45,9 @@ const querys = {
     `,
     getTypeClassrooms: `
         SELECT * FROM tb_tipo_aula
+    `,
+    getStatesIncidences: `
+        SELECT * FROM tb_estado_incidencia
     `
 }
 
