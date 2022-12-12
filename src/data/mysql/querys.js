@@ -8,7 +8,7 @@ const querys = {
         ON tb_aula.id_planta = tb_planta.id_planta
     `,
     getOpenIncidences: `
-        SELECT tb_reporte.id_reporte, tb_estado_incidencia.id_estado_incidencia, tb_planta.id_planta, tb_aula.id_aula, tb_reporte.titulo, tb_reporte.descripcion, tb_estado_incidencia.estado,  tb_aula.aula,  tb_planta.planta
+        SELECT tb_reporte.id_reporte, tb_estado_incidencia.id_estado_incidencia, tb_planta.id_planta, tb_aula.id_aula, tb_reporte.titulo, tb_reporte.descripcion, tb_estado_incidencia.estado,  tb_aula.aula,  tb_planta.planta, tb_tipo_aula.tipo_aula
         FROM tb_reporte
         INNER JOIN tb_estado_incidencia
         ON tb_reporte.id_estado_incidencia = tb_estado_incidencia.id_estado_incidencia
@@ -16,7 +16,8 @@ const querys = {
         ON tb_reporte.id_aula = tb_aula.id_aula
         INNER JOIN tb_planta
         ON tb_aula.id_planta = tb_planta.id_planta
-        WHERE tb_reporte.id_estado_incidencia = 1
+        INNER JOIN tb_tipo_aula
+        ON tb_aula.id_tipo_aula = tb_tipo_aula.id_tipo_aula
     `,
     getFloors: `
         SELECT * FROM tb_planta
