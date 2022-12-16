@@ -48,6 +48,9 @@ const querys = {
     `,
     getStatesIncidences: `
         SELECT * FROM tb_estado_incidencia
+    `,
+    getIncidences: `
+        SELECT * FROM tb_reporte
     `
 }
 

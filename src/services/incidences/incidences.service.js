@@ -1,7 +1,7 @@
 export default ({ incidencesData }) => {
     return async () => {
         try {
-            const result = await incidencesData.getOpenIncidences()
+            const result = await incidencesData.getIncidences()
 
             return result
         } catch (e) {

@@ -51,5 +51,15 @@ export default function makeTicketAccessData({ makeDbConnection }) {
         }
     }
 
-    return Object.freeze({ getClassrooms, getOpenIncidences, getFloors, postCreateIncidence, getStatesIncidences })
+    async function getIncidences(params) {
+        try {
+            const db = await makeDbConnection(querys.getIncidences, params || '')
+            return db
+        } catch (e) {
+            console.log(e)
+            throw { status: 500, message: 'Error al obtener las incidencias' }
+        }
+    }
+
+    return Object.freeze({ getClassrooms, getOpenIncidences, getFloors, postCreateIncidence, getStatesIncidences, getIncidences })
 }
