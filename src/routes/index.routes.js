@@ -1,5 +1,5 @@
 import events from 'events'
-events.EventEmitter.defaultMaxListeners = 20
+events.EventEmitter.defaultMaxListeners = 50
 
 import { Router, json, urlencoded } from 'express'
 
